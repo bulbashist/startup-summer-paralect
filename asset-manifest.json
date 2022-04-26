@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/startup-summer-paralect/static/css/main.121d81c7.css",
+    "main.js": "/startup-summer-paralect/static/js/main.6851a6bd.js",
+    "static/js/787.53a36832.chunk.js": "/startup-summer-paralect/static/js/787.53a36832.chunk.js",
+    "static/media/logo.svg": "/startup-summer-paralect/static/media/logo.29f6c78090c3fa7ff890a4220fa246e7.svg",
+    "static/media/followers.svg": "/startup-summer-paralect/static/media/followers.c28170a35d4225dbd35fd5fcfe8d1599.svg",
+    "static/media/no-repo.svg": "/startup-summer-paralect/static/media/no-repo.1d60db133dd35a919a2e606f60b4acd2.svg",
+    "static/media/glass.svg": "/startup-summer-paralect/static/media/glass.1566e5e768319804cdef6974eeab964b.svg",
+    "index.html": "/startup-summer-paralect/index.html",
+    "static/media/man.svg": "/startup-summer-paralect/static/media/man.cd48437c7f7498f3a449f77e07e34a5d.svg",
+    "static/media/following.svg": "/startup-summer-paralect/static/media/following.829b01f2b1b8cf8e390548bbac574f6e.svg",
+    "main.121d81c7.css.map": "/startup-summer-paralect/static/css/main.121d81c7.css.map",
+    "main.6851a6bd.js.map": "/startup-summer-paralect/static/js/main.6851a6bd.js.map",
+    "787.53a36832.chunk.js.map": "/startup-summer-paralect/static/js/787.53a36832.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.121d81c7.css",
+    "static/js/main.6851a6bd.js"
+  ]
+}
