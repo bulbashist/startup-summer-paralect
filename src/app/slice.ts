@@ -2,16 +2,19 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { IOptions, IProfile, IRepo } from "./types";
 
-const getProfileData = createAsyncThunk("profileData", async (url: string) => {
-  const res = await fetch(url);
-  const data = res.json();
-  return data;
-});
+const getProfileData = createAsyncThunk(
+  "profileData",
+  async (url: string): Promise<IProfile> => {
+    const res: Response = await fetch(url);
+    const data: Promise<IProfile> = res.json();
+    return data;
+  }
+);
 
 const getRepos = createAsyncThunk(
   "reposData",
   async (props: { url: string; page: number }) => {
-    const res = await fetch(`${props.url}?page=${props.page}&per_page=5`);
+    const res = await fetch(`${props.url}?page=${props.page}&per_page=4`);
     const data = res.json();
     return data;
   }
