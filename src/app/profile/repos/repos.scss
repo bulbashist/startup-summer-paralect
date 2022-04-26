@@ -1,6 +1,7 @@
 @import "../../../global.scss";
 
 .repos-widget {
+  position: relative;
   width: 100%;
 
   .repos-header {
@@ -51,6 +52,24 @@
       .active-link {
         background-color: $lightblue;
       }
+    }
+  }
+
+  .no-repos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 122px);
+    width: 244px;
+    height: 150px;
+
+    .text {
+      text-align: center;
+      font: $small-header-font;
+      color: #808080;
     }
   }
 }

@@ -3,25 +3,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRepos } from "../../slice";
 import { AppDispatch, RootState } from "../../store";
 import { IRepo } from "../../types";
+import NoRepos from "./no-repos";
 import "./repos.scss";
+
+interface IProps {
+  nickname: string;
+  repos: Array<IRepo>;
+  quantity: number;
+}
 
 const RESULTS_PER_PAGE = 5;
 
-function ReposWidget() {
-  let { repos, nickname, quantity } = useSelector((state: RootState) => {
-    return {
-      repos: state.repos,
-      nickname: state.profile.login,
-      quantity: state.profile.public_repos,
-    };
-  });
+function Repos(props: IProps) {
   const dispatch = useDispatch<AppDispatch>();
   const [page, setPage] = useState<number>(1);
   const pagesLinks = [] as Array<number>;
 
   {
     let i = 1;
-    let temp = quantity;
+    let temp = props.quantity;
     do {
       pagesLinks.push(i);
       temp -= RESULTS_PER_PAGE;
@@ -30,11 +30,11 @@ function ReposWidget() {
   }
 
   function changeRepos(nextPage: number) {
-    if ((nextPage - 1) * RESULTS_PER_PAGE > quantity) nextPage--;
+    if ((nextPage - 1) * RESULTS_PER_PAGE > props.quantity) nextPage--;
     if (nextPage < 1) nextPage = 1;
     dispatch(
       getRepos({
-        url: `https://api.github.com/users/${nickname}/repos`,
+        url: `https://api.github.com/users/${props.nickname}/repos`,
         page: nextPage,
       })
     );
@@ -42,10 +42,10 @@ function ReposWidget() {
   }
 
   return (
-    <section className="repos-widget">
-      <h2 className="repos-header">Repositories ({quantity})</h2>
+    <React.Fragment>
+      <h2 className="repos-header">Repositories ({props.quantity})</h2>
       <ul className="repos-list">
-        {repos.map((repo: IRepo) => {
+        {props.repos.map((repo: IRepo) => {
           return (
             <li key={repo.id} className="repos-list__item repo">
               <p className="repo__name">
@@ -61,10 +61,10 @@ function ReposWidget() {
       <div className="repos-pagination">
         <p>
           {`${(page - 1) * RESULTS_PER_PAGE + 1}-${
-            page * RESULTS_PER_PAGE < quantity
+            page * RESULTS_PER_PAGE < props.quantity
               ? page * RESULTS_PER_PAGE
-              : quantity
-          } of ${quantity} items`}
+              : props.quantity
+          } of ${props.quantity} items`}
         </p>
         <button onClick={() => changeRepos(page - 1)}>{"<"}</button>
         <ul className="page-links">
@@ -82,6 +82,26 @@ function ReposWidget() {
         </ul>
         <button onClick={() => changeRepos(page + 1)}>{">"}</button>
       </div>
+    </React.Fragment>
+  );
+}
+
+function ReposWidget() {
+  const { repos, nickname, quantity } = useSelector((state: RootState) => {
+    return {
+      repos: state.repos,
+      nickname: state.profile.login,
+      quantity: state.profile.public_repos,
+    };
+  });
+
+  return (
+    <section className="repos-widget">
+      {quantity !== 0 ? (
+        <Repos repos={repos} nickname={nickname} quantity={quantity} />
+      ) : (
+        <NoRepos />
+      )}
     </section>
   );
 }

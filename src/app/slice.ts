@@ -75,18 +75,7 @@ const allData = createSlice({
             repos: action.payload,
           };
         }
-      )
-      .addCase(getRepos.rejected, (state: RootState) => {
-        return {
-          ...state,
-          repos: [],
-          options: {
-            ...state.options,
-            loading: false,
-            notFound: true,
-          },
-        };
-      });
+      );
   },
 });
 
