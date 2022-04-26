@@ -1,5 +1,5 @@
-import React from "react";
-import man from "./assets/man.svg";
+import React from 'react';
+import man from './assets/man.svg';
 
 function NotFound() {
   return (

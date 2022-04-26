@@ -1,5 +1,5 @@
-import React from "react";
-import noRepo from "./assets/no-repo.svg";
+import React from 'react';
+import noRepo from './assets/no-repo.svg';
 
 function NoRepos() {
   return (

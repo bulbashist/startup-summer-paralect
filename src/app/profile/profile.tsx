@@ -1,13 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
-import ProfileInfo from "./profile-info/profile-info";
-import ReposWidget from "./repos/repos";
-import "./profile.scss";
-import glass from "./assets/glass.svg";
-import NotFound from "./not-found";
-import Loading from "./loading";
-import NotInteracted from "./not-interacted";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
+import ProfileInfo from './profile-info/profile-info';
+import ReposWidget from './repos/repos';
+import NotFound from './not-found';
+import Loading from './loading';
+import NotInteracted from './not-interacted';
+import './profile.scss';
 
 function ProfileWidget() {
   const options = useSelector((state: RootState) => state.options);

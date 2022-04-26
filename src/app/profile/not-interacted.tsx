@@ -1,5 +1,5 @@
-import React from "react";
-import glass from "./assets/glass.svg";
+import React from 'react';
+import glass from './assets/glass.svg';
 
 function NotInteracted() {
   return (

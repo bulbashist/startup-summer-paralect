@@ -1,14 +1,15 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { getProfileData, getRepos } from "../slice";
-import { AppDispatch } from "../store";
-import "./header.scss";
-import logo from "./logo.svg";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getProfileData, getRepos } from '../slice';
+import { AppDispatch } from '../store';
+import logo from './assets/logo.svg';
+import './header.scss';
 
 function Header() {
   const dispatch = useDispatch<AppDispatch>();
+
   function getProfile(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       const nickname = e.currentTarget.value;
       dispatch(getProfileData(`https://api.github.com/users/${nickname}`));
       dispatch(
@@ -17,7 +18,6 @@ function Header() {
           page: 1,
         })
       );
-      console.log(`https://api.github.com/users/${nickname}`);
     }
   }
 

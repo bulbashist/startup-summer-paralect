@@ -7,7 +7,7 @@ export interface IProfile {
   public_repos: number;
   followers: number;
   following: number;
-  message?: string;
+  message: string;
 }
 
 export interface IRepo {
@@ -18,7 +18,7 @@ export interface IRepo {
 }
 
 export interface IOptions {
-  interacted?: boolean;
+  interacted: boolean;
   loading: boolean;
-  notFound?: boolean;
+  notFound: boolean;
 }

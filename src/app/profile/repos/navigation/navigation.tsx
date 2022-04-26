@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../store";
-import { getRepos } from "../../../slice";
-
-const RESULTS_PER_PAGE = 4;
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { RESULTS_PER_PAGE } from '../../../../App';
+import { AppDispatch } from '../../../store';
+import { getRepos } from '../../../slice';
 
 function PageNavigator(props: { nickname: string; quantity: number }) {
   const [page, setPage] = useState<number>(1);
@@ -27,25 +26,20 @@ function PageNavigator(props: { nickname: string; quantity: number }) {
     <div className="repos-pagination">
       <p className="text">
         {`${(page - 1) * RESULTS_PER_PAGE + 1}-${
-          page * RESULTS_PER_PAGE < props.quantity
-            ? page * RESULTS_PER_PAGE
-            : props.quantity
+          page * RESULTS_PER_PAGE < props.quantity ? page * RESULTS_PER_PAGE : props.quantity
         } of ${props.quantity} items`}
       </p>
       <ul className="page-links">
         <li className="link">
-          <button onClick={() => changeRepos(page - 1)}>{"<"}</button>
+          <button onClick={() => changeRepos(page - 1)}>{'<'}</button>
         </li>
         {pagesLinks.map((pageLink: number) => {
-          if (
-            pageLink > 0 &&
-            pageLink <= Math.ceil(props.quantity / RESULTS_PER_PAGE)
-          ) {
+          if (pageLink > 0 && pageLink <= Math.ceil(props.quantity / RESULTS_PER_PAGE)) {
             return (
               <li
                 key={pageLink}
                 onClick={() => changeRepos(pageLink)}
-                className={`link ${pageLink === page ? "active-link" : ""}`}
+                className={`link ${pageLink === page ? 'active-link' : ''}`}
               >
                 {pageLink}
               </li>
@@ -53,7 +47,7 @@ function PageNavigator(props: { nickname: string; quantity: number }) {
           } else return null;
         })}
         <li className="link">
-          <button onClick={() => changeRepos(page + 1)}>{">"}</button>
+          <button onClick={() => changeRepos(page + 1)}>{'>'}</button>
         </li>
       </ul>
     </div>

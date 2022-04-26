@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getRepos } from "../../slice";
-import { AppDispatch, RootState } from "../../store";
-import { IRepo } from "../../types";
-import PageNavigator from "./navigation/navigation";
-import NoRepos from "./no-repos";
-import "./repos.scss";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import PageNavigator from './navigation/navigation';
+import NoRepos from './no-repos';
+import { RootState } from '../../store';
+import { IRepo } from '../../types';
+import './repos.scss';
 
 interface IProps {
   nickname: string;

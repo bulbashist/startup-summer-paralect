@@ -1,6 +1,8 @@
-import React from "react";
-import Header from "./app/header/header";
-import ProfileWidget from "./app/profile/profile";
+import React from 'react';
+import Header from './app/header/header';
+import ProfileWidget from './app/profile/profile';
+
+export const RESULTS_PER_PAGE = 4;
 
 function App() {
   return (
