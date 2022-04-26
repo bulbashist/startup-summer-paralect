@@ -1,0 +1,35 @@
+@import "../../../global.scss";
+
+.profile-info {
+  margin-top: 55px;
+
+  &__avatar {
+    width: 280px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+  }
+
+  &__name {
+    font: normal 600 26px/34px Inter;
+  }
+
+  &__nickname {
+    font: normal 400 18px/22px Inter;
+    color: $lightblue;
+  }
+
+  .people {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style-type: none;
+
+    .follow-info {
+      a {
+        display: flex;
+        flex-direction: row;
+        gap: 9px;
+      }
+    }
+  }
+}

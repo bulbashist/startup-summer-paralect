@@ -1,0 +1,56 @@
+@import "../../../global.scss";
+
+.repos-widget {
+  width: 100%;
+
+  .repos-header {
+    margin: 30px 0;
+    font: normal 600 32px/42px Inter;
+  }
+
+  .repos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    list-style-type: none;
+
+    &__item {
+      background-color: #ffffff;
+    }
+
+    .repo {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 24px 32px;
+
+      &__name {
+        color: #0064eb;
+        font: normal 500 24px/29px Inter;
+        margin-bottom: 16px;
+      }
+
+      &__description {
+        font-family: normal 400 16px/19px Inter;
+      }
+    }
+  }
+
+  .repos-pagination {
+    display: flex;
+    flex-direction: row;
+    .page-links {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+
+      .link {
+        cursor: pointer;
+      }
+
+      .active-link {
+        background-color: $lightblue;
+      }
+    }
+  }
+}
