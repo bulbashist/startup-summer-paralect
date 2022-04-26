@@ -1,12 +1,13 @@
 export interface IProfile {
-  login?: string;
-  id?: number;
-  avatar_url?: string;
+  login: string;
+  id: number;
+  avatar_url: string;
   html_url: string;
   name: string;
   public_repos: number;
   followers: number;
   following: number;
+  message?: string;
 }
 
 export interface IRepo {
@@ -17,5 +18,7 @@ export interface IRepo {
 }
 
 export interface IOptions {
+  interacted?: boolean;
   loading: boolean;
+  notFound?: boolean;
 }

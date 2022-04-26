@@ -23,7 +23,11 @@ const allData = createSlice({
   initialState: {
     profile: {} as IProfile,
     repos: [] as Array<IRepo>,
-    options: { loading: true } as IOptions,
+    options: {
+      interacted: false,
+      loading: false,
+      notFound: false,
+    } as IOptions,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -32,6 +36,8 @@ const allData = createSlice({
         return {
           ...state,
           options: {
+            ...state.options,
+            interacted: true,
             loading: true,
           },
         };
@@ -39,18 +45,49 @@ const allData = createSlice({
       .addCase(
         getProfileData.fulfilled,
         (state: RootState, action: PayloadAction<IProfile>) => {
-          state.profile = action.payload;
-          state.options.loading = false;
-          return state;
+          if (action.payload.message) {
+            return {
+              ...state,
+              repos: [],
+              options: {
+                ...state.options,
+                notFound: true,
+                loading: false,
+              },
+            };
+          } else {
+            return {
+              ...state,
+              profile: action.payload,
+              options: {
+                ...state.options,
+                loading: false,
+                notFound: false,
+              },
+            };
+          }
         }
       )
       .addCase(
         getRepos.fulfilled,
         (state: RootState, action: PayloadAction<Array<IRepo>>) => {
-          state.repos = action.payload;
-          return state;
+          return {
+            ...state,
+            repos: action.payload,
+          };
         }
-      );
+      )
+      .addCase(getRepos.rejected, (state: RootState) => {
+        return {
+          ...state,
+          repos: [],
+          options: {
+            ...state.options,
+            loading: false,
+            notFound: true,
+          },
+        };
+      });
   },
 });
 

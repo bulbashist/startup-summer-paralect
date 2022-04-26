@@ -1,3 +1,18 @@
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+    border-color: pink;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-color: red;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: yellow;
+  }
+}
+
 .profile-widget {
   display: flex;
 
@@ -15,4 +30,34 @@
   box-sizing: border-box;
   background-color: #e5e5e5;
   padding: 0 5%;
+
+  .loading {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    border: 3px dashed pink;
+    border-radius: 50%;
+    animation: loading 3s linear infinite;
+  }
+
+  .not-found,
+  .not-interacted {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 95px);
+    width: 190px;
+    height: 150px;
+
+    .text {
+      text-align: center;
+      font: normal 400 22px/31px Inter;
+      color: #808080;
+    }
+  }
 }
