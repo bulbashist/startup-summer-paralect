@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { getProfileData, getRepos } from "../slice";
 import { AppDispatch } from "../store";
@@ -7,9 +7,6 @@ import logo from "./logo.svg";
 
 function Header() {
   const dispatch = useDispatch<AppDispatch>();
-  const [state, setState] = useState({
-    loading: false,
-  });
   function getProfile(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       const nickname = e.currentTarget.value;

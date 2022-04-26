@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Root } from "react-dom/client";
 import { RootState } from "./store";
 import { IOptions, IProfile, IRepo } from "./types";
 
